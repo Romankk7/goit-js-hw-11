@@ -38,13 +38,13 @@ async function getPicture() {
 
 async function onSubmit(e){
 e.preventDefault();
-searchQuery = e.currentTarget.elements.searchQuery.value;
+searchQuery = e.currentTarget.elements.searchQuery.value.trim();
 gallery.innerHTML = ``;
 page = 1;
+loadBtn.style.display = 'none';
 
 if (!searchQuery){
   Notiflix.Notify.failure(`Please, enter your request`);
-  loadBtn.style.display = 'none';
   return;
 }
 try{
